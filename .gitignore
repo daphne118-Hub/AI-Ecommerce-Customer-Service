@@ -22,3 +22,6 @@ venv/
 
 # 运行时产生的演示状态（下单/售后后生成，不需要提交）
 data/state.json
+
+# Streamlit Cloud 密钥文件（含 API Key，绝不提交）
+.streamlit/secrets.toml
