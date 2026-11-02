@@ -1,0 +1,60 @@
+{
+  "_说明": "本文件为模拟演示数据，与任何真实电商平台无关，仅用于项目功能演示",
+  "DD20261101001": {
+    "order_id": "DD20261101001",
+    "customer": "演示顾客A",
+    "created_at": "2026-11-01",
+    "items": [{"name": "蓝牙耳机", "quantity": 1, "price": 99}],
+    "total": 99,
+    "status": "已发货",
+    "logistics": {
+      "company": "模拟速运",
+      "tracking_no": "MN20261101001",
+      "status": "运输中",
+      "current_location": "华东转运中心",
+      "estimated_delivery": "2026-11-03"
+    },
+    "refund": null,
+    "after_sale": null
+  },
+  "DD20261028002": {
+    "order_id": "DD20261028002",
+    "customer": "演示顾客B",
+    "created_at": "2026-10-28",
+    "items": [{"name": "保温杯", "quantity": 2, "price": 59}],
+    "total": 118,
+    "status": "已签收",
+    "logistics": {
+      "company": "模拟速运",
+      "tracking_no": "MN20261028002",
+      "status": "已签收",
+      "current_location": "本人签收",
+      "estimated_delivery": "2026-10-31"
+    },
+    "refund": null,
+    "after_sale": null
+  },
+  "DD20261025003": {
+    "order_id": "DD20261025003",
+    "customer": "演示顾客A",
+    "created_at": "2026-10-25",
+    "items": [{"name": "双肩背包", "quantity": 1, "price": 129}],
+    "total": 129,
+    "status": "退款中",
+    "logistics": {
+      "company": "模拟速运",
+      "tracking_no": "MN20261025003",
+      "status": "退货运输中",
+      "current_location": "退货仓途中",
+      "estimated_delivery": "-"
+    },
+    "refund": {
+      "refund_id": "TK20261026001",
+      "amount": 129,
+      "reason": "尺码不合适",
+      "status": "平台审核中",
+      "expected_days": "1-3个工作日"
+    },
+    "after_sale": {"type": "退货退款", "status": "已受理"}
+  }
+}

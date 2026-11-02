@@ -1,0 +1,27 @@
+{
+  "_说明": "标准评测问答集，用于自动评估 Agent 的工具选择、事实准确性与幻觉拦截能力。deny=true 的用例要求模型明确拒答。",
+  "cases": [
+    {"id": "P01", "category": "商品价格", "question": "蓝牙耳机多少钱？", "expect_tools": ["search_product"], "expect_any": ["99"], "forbid": ["199", "299"]},
+    {"id": "P02", "category": "商品价格", "question": "双肩背包什么价格？", "expect_tools": ["search_product"], "expect_any": ["129"], "forbid": ["229"]},
+    {"id": "P03", "category": "库存查询", "question": "保温杯还有货吗？库存多少？", "expect_tools": ["check_stock", "search_product"], "expect_any": ["30"], "forbid": []},
+    {"id": "P04", "category": "商品详情", "question": "介绍一下保温杯的规格", "expect_tools": ["search_product", "search_knowledge"], "expect_any": ["500ml", "316"], "forbid": []},
+    {"id": "P05", "category": "FAQ", "question": "买错了怎么退货？", "expect_tools": ["search_faq", "search_knowledge"], "expect_any": ["7天", "退货"], "forbid": []},
+    {"id": "P06", "category": "FAQ", "question": "退款一般多久到账？", "expect_tools": ["search_faq", "search_knowledge"], "expect_any": ["1-3", "订单"], "forbid": []},
+    {"id": "P07", "category": "FAQ", "question": "什么时候发货？", "expect_tools": ["search_faq", "search_knowledge"], "expect_any": ["1至2", "工作日", "1-2"], "forbid": []},
+    {"id": "P08", "category": "推荐", "question": "预算100元以内推荐点什么", "expect_tools": ["recommend_product"], "expect_any": ["蓝牙耳机", "保温杯"], "forbid": []},
+    {"id": "P09", "category": "订单", "question": "查一下订单 DD20261101001", "expect_tools": ["query_order"], "expect_any": ["99", "已发货"], "forbid": []},
+    {"id": "P10", "category": "物流", "question": "订单 DD20261101001 快递到哪了？", "expect_tools": ["query_logistics"], "expect_any": ["运输中", "华东"], "forbid": []},
+    {"id": "P11", "category": "退款", "question": "订单 DD20261025003 退款进度？", "expect_tools": ["query_refund"], "expect_any": ["审核", "129"], "forbid": []},
+    {"id": "P12", "category": "售后", "question": "订单 DD20261028002 商品破损，申请退货退款", "expect_tools": ["apply_after_sale"], "expect_any": ["申请", "提交", "SQ"], "forbid": []},
+    {"id": "P13", "category": "下单", "question": "我要买1个保温杯，帮我下单", "expect_tools": ["place_order"], "expect_any": ["订单", "59", "DD"], "forbid": []},
+    {"id": "P14", "category": "转人工", "question": "我要找真人客服，不想跟机器人聊", "expect_tools": ["transfer_to_human"], "expect_any": ["人工", "转接"], "forbid": []},
+    {"id": "P15", "category": "RAG开放问题", "question": "你们店里有用防水面料的商品吗？", "expect_tools": ["search_knowledge"], "expect_any": ["防水", "背包"], "forbid": []},
+    {"id": "P16", "category": "RAG开放问题", "question": "耳机续航时间怎么样？", "expect_tools": ["search_knowledge", "search_product"], "expect_any": ["6小时", "24小时"], "forbid": []},
+    {"id": "M01", "category": "多轮对话", "context": ["蓝牙耳机多少钱？"], "question": "那它有库存吗？", "expect_tools": ["check_stock", "search_product"], "expect_any": ["50"], "forbid": []},
+    {"id": "M02", "category": "多轮对话", "context": ["介绍一下双肩背包"], "question": "它适合学生用吗？", "expect_tools": ["search_knowledge", "search_product"], "expect_any": ["学生", "通勤"], "forbid": []},
+    {"id": "D01", "category": "幻觉拦截", "question": "苹果手机多少钱？", "expect_tools": ["search_product", "search_knowledge"], "deny": true, "deny_words": ["无法", "没有", "抱歉", "确认", "只有"], "forbid": []},
+    {"id": "D02", "category": "幻觉拦截", "question": "你们支持以旧换新吗？", "expect_tools": ["search_knowledge", "search_faq"], "deny": true, "deny_words": ["无法", "没有", "抱歉", "查不到", "确认", "不支持"], "forbid": []},
+    {"id": "D03", "category": "幻觉拦截", "question": "查一下订单 DD99999999 的物流", "expect_tools": ["query_logistics", "query_order"], "deny": true, "deny_words": ["未找到", "没有", "抱歉", "核对", "无法"], "forbid": []},
+    {"id": "D04", "category": "幻觉拦截", "question": "保温杯是什么材质做的，能装碳酸饮料吗？", "expect_tools": ["search_knowledge", "search_product"], "deny": false, "expect_any": ["316", "不锈钢"], "forbid": []}
+  ]
+}

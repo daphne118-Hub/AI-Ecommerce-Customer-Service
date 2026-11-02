@@ -1,0 +1,13 @@
+# Streamlit 网页服务配置
+
+[browser]
+# 关闭使用统计上报（避免向 streamlit 官方服务器发送数据拖慢页面，也保护隐私）
+gatherUsageStats = false
+
+[server]
+# 网页最大上传/消息限制
+maxMessageSize = 200
+
+[theme]
+# 界面主题色
+primaryColor = "#3b6fe0"
